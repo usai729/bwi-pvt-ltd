@@ -25,7 +25,10 @@ export default function Nav() {
         </div>
         <div className="flex flex-col gap-2 items-center">
           <p className="text-2xl font-semibold">UrbanPulse</p>
-          <div className="relative flex gap-2 items-center">
+          <form
+            action={`/search/${search}`}
+            className="relative flex gap-2 items-center"
+          >
             <input
               type="text"
               placeholder="Search..."
@@ -39,7 +42,7 @@ export default function Nav() {
               <CiSearch color="#fff" />
             </button>
             <CiSearch className="absolute top-3 -right-0 left-1 text-gray-500" />
-          </div>
+          </form>
         </div>
         <div className="flex gap-5 items-center">
           <img

@@ -1,8 +1,9 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Auth from "./Pages/Auth";
 import ProtectedRoute from "./Utils/ProtectedRoute";
 import Home from "./Pages/Home";
+import SearchResults from "./Pages/SearchResults";
 
 const Page_404 = () => {
   return (
@@ -34,9 +35,12 @@ const Page_404 = () => {
           </p>
 
           <div class="flex items-center w-full mt-6 gap-x-3 shrink-0 sm:w-auto">
-            <button class="w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto hover:bg-blue-600 ">
+            <Link
+              to={"/"}
+              class="w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto hover:bg-blue-600 "
+            >
               Take me home
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -57,6 +61,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/search/:search" element={<SearchResults />} />
 
         <Route path="*" element={<Page_404 />} />
       </Routes>
