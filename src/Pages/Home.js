@@ -50,7 +50,7 @@ export default function Home() {
   }, [page, from, to]);
 
   const handleFilterChange = (e) => {
-    setPage(1); // Reset page to 1 when filter criteria changes
+    setPage(1);
     if (e.target.name === "from") {
       setFrom(e.target.value);
     } else {
